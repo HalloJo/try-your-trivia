@@ -37,7 +37,6 @@ const Quiz = ({
   return (
     <div>
       <div>
-        <h2>Logo</h2>
         <div>
           <span>Category: {formatText(currentQuestion.category)}</span>
           <span>Difficulty: {currentQuestion.difficulty} </span>
