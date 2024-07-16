@@ -3,6 +3,7 @@ import "./App.scss";
 import { useState } from "react";
 import CategorySelector from "./components/CategorySelector/CategorySelector";
 import Quiz from "./components/Quiz/Quiz";
+import Result from "./components/Result/Result";
 
 const App = () => {
   const [quizData, setQuizData] = useState(null);
@@ -29,11 +30,7 @@ const App = () => {
   return (
     <div>
       {isQuizCompleted ? (
-        <div>
-          <h1>The end!</h1>
-          <p>Your score is {score}.</p>
-          <button onClick={handleReset}>Reset Quiz</button>
-        </div>
+        <Result score={score} handleReset={handleReset} />
       ) : quizData ? (
         <Quiz quizData={quizData} handleQuizComplete={handleQuizComplete} />
       ) : (
