@@ -1,13 +1,12 @@
 import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.scss";
 import { useState } from "react";
 import CategorySelector from "./components/CategorySelector/CategorySelector";
+import Quiz from "./components/Quiz/Quiz";
 
 const App = () => {
   const [quizData, setQuizData] = useState(null);
   const [score, setScore] = useState<number>(0);
-  const [maxScore, setMaxScore] = useState<number>(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState<boolean>(false);
 
   const handleQuizStart = (data: any) => {
@@ -16,22 +15,27 @@ const App = () => {
     setScore(0);
   };
 
+  const handleQuizComplete = (finalScore: number) => {
+    setScore(finalScore);
+    setIsQuizCompleted(true);
+  };
+
+  const handleReset = () => {
+    setScore(0);
+    setQuizData(null);
+    setIsQuizCompleted(false);
+  };
+
   return (
     <div>
       {isQuizCompleted ? (
         <div>
           <h1>The end!</h1>
-          <p>
-            Your score is {score} of {maxScore}
-          </p>
+          <p>Your score is {score}.</p>
+          <button onClick={handleReset}>Reset Quiz</button>
         </div>
       ) : quizData ? (
-        <div>
-          <h1>The quiz.</h1>
-          <pre style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
-            {JSON.stringify(quizData, null, 2)}
-          </pre>
-        </div>
+        <Quiz quizData={quizData} handleQuizComplete={handleQuizComplete} />
       ) : (
         <CategorySelector handleQuizStart={handleQuizStart} />
       )}
