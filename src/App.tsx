@@ -63,13 +63,15 @@ const App = () => {
         <section>
           <div className="hero">
             <p>
-              Welcome to an adventure of knowledge and fun! Embark on a
-              thrilling journey with this Quizia app, where curiosity meets
-              challenge. Explore diverse categories, from mind-bending trivia to
-              pulse-pounding quizzes, and test your wits against the clock. Dive
-              deep into questions that will sharpen your mind and leave you
-              craving more. Let the quest for knowledge begin – are you ready to
-              conquer the ultimate trivia challenge?
+              Welcome to an <span>adventure of knowledge and fun!</span> Embark
+              on a thrilling journey with this <span>Quizia app</span>, where
+              curiosity meets challenge. Explore <span>diverse categories</span>
+              , from mind-bending trivia to <span>pulse-pounding quizzes</span>,
+              and test your wits against the <span>clock (10 seconds)</span>.
+              Dive deep into questions that will sharpen your mind and leave you
+              craving more. Let the quest for knowledge begin –{" "}
+              <span>are you ready</span> to conquer the ultimate trivia
+              challenge?
             </p>
           </div>
         </section>

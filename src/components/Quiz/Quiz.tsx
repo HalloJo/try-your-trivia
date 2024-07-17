@@ -23,7 +23,7 @@ const Quiz = ({
     } else if (currentQuestion.type === "multiple") {
       points = isCorrect ? 10 : 0;
     }
-    setScore(score + points);
+    setScore((prevScore) => prevScore + points);
 
     const nextQuestionIndex = currentQuestionIndex + 1;
 
