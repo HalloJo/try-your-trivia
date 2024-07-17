@@ -1,3 +1,4 @@
+import React from "react";
 import "../src/scss/main.scss";
 import { useEffect, useState } from "react";
 import CategorySelector from "./components/CategorySelector/CategorySelector";
