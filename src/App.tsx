@@ -1,14 +1,16 @@
 import "../src/scss/main.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategorySelector from "./components/CategorySelector/CategorySelector";
 import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Result/Result";
+import MobileMessage from "./components/MobileMessage/MobileMessage";
 
 const App = () => {
   const [quizData, setQuizData] = useState(null);
   const [ready, setReady] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState<boolean>(false);
+  const [showMobileMessage, setShowMobileMessage] = useState<boolean>(false);
 
   const handleQuizStart = (data: any) => {
     setQuizData(data);
@@ -27,11 +29,36 @@ const App = () => {
     setIsQuizCompleted(false);
   };
 
+  useEffect(() => {
+    if (showMobileMessage) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [showMobileMessage]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobile = window.innerWidth < 768;
+
+      setShowMobileMessage(isMobile);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.addEventListener("resize", checkMobile);
+    };
+  }, []);
+
   return (
     <>
       <header>
         <p className="logo">Quizia.</p>
       </header>
+      {showMobileMessage && <MobileMessage />}
       {!ready && (
         <section>
           <div className="hero">

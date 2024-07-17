@@ -26,6 +26,10 @@
   width: 100%;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 a {
   font-weight: 500;
   color: $color-blue;
@@ -109,6 +113,10 @@ section {
   font-size: 8rem;
   padding: 3rem;
   color: $color-greenish;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
 }
 
 .application {

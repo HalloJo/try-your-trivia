@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+
+.mobileMessage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  &__container {
+    background-color: #000;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: 1px solid $color-greenish;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: $font-heading;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    line-height: 1.2;
+  }
+}
