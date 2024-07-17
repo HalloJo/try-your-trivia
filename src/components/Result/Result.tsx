@@ -8,10 +8,17 @@ const Result = ({
   handleReset: () => void;
 }) => {
   return (
-    <div>
-      <h1>The end!</h1>
-      <p>Your score is {score}.</p>
-      <button onClick={handleReset}>Reset Quiz</button>
+    <div className="result">
+      <h1 className="result__title">Congratulations!</h1>
+      <p className="result__subTitle">You finished the quiz with a score of:</p>
+      <p className="result__score">{score} points</p>
+      <p className="result__subTitle">
+        Thank you for trying my Quizia app. <br />
+        You can try again to get a better score or just for the fun of it!
+      </p>
+      <button className="result__button" onClick={handleReset}>
+        Reset Quiz
+      </button>
     </div>
   );
 };

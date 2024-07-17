@@ -20,41 +20,47 @@ const CategorySelector = ({ handleQuizStart }: any) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <h2>First, select your category:</h2>
-        {error && <p>Whoops.. {error} </p>}
+    <form onSubmit={handleSubmit} className="category__form">
+      <div className="category__container">
         <div>
-          {categories.map((category: Category) => (
-            <button
-              key={category.id}
-              value={category.id}
-              type="button"
-              onClick={() => setCategory(category.id)}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
-      </div>
-      {category && (
-        <div>
-          <h2>Then, select a difficulty:</h2>
-          <div>
-            {difficulties.map((difficulty, index) => (
+          <h2 className="category__heading">First, select your category:</h2>
+          {error && <p>Whoops.. {error} </p>}
+          <div className="category__list">
+            {categories.map((category: Category) => (
               <button
-                key={index}
-                value={difficulty}
+                key={category.id}
+                value={category.id}
                 type="button"
-                onClick={() => setDifficulty(difficulty)}
+                onClick={() => setCategory(category.id)}
               >
-                {difficulty}
+                {category.name}
               </button>
             ))}
           </div>
         </div>
+        {category && (
+          <div>
+            <h2 className="category__heading">Then, select a difficulty:</h2>
+            <div className="category__list">
+              {difficulties.map((difficulty, index) => (
+                <button
+                  key={index}
+                  value={difficulty}
+                  type="button"
+                  onClick={() => setDifficulty(difficulty)}
+                >
+                  {difficulty}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+      {category && difficulty && (
+        <button className="category__button" type="submit">
+          Start Quiz
+        </button>
       )}
-      {category && difficulty && <button type="submit">Start Quiz</button>}
     </form>
   );
 };

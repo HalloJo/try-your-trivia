@@ -10,10 +10,12 @@ const QuestionCard = ({
   handleAnswer: (isCorrect: boolean) => void;
 }) => {
   return (
-    <div>
-      <span>{currentQuestion.type}</span>
-      <h3>{formatText(currentQuestion.question)}</h3>
-      <div>
+    <div className="questionCard">
+      <span className="questionCard__type">{currentQuestion.type}</span>
+      <h3 className="questionCard__question">
+        {formatText(currentQuestion.question)}
+      </h3>
+      <div className="questionCard__answers">
         {[...currentQuestion.incorrect_answers, currentQuestion.correct_answer]
           .sort()
           .map((answer) => (

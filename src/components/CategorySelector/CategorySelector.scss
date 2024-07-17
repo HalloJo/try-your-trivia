@@ -1,0 +1,36 @@
+@import "../../scss/variables";
+
+.category {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__heading {
+    font-family: $font-heading;
+  }
+
+  &__list {
+    margin: 1rem 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+      text-transform: capitalize;
+    }
+  }
+
+  &__button {
+    margin: 2rem 0 0 0;
+    width: 50%;
+    background-color: $color-greenish;
+    box-shadow: 0px 8px 0px $color-black-vanta;
+    color: $color-black;
+    font-weight: 700;
+    font-family: $font-heading;
+  }
+}

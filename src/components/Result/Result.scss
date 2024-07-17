@@ -1,0 +1,37 @@
+@import "../../scss/variables";
+
+.result {
+  background-color: $color-greenish;
+  width: fit-content;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  &__title {
+    font-family: $font-heading;
+    color: black;
+  }
+
+  &__subTitle {
+    color: black;
+  }
+
+  &__score {
+    background-color: $color-black-vanta;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    font-family: $font-heading;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+
+  &__button {
+    box-shadow: 0px 8px 0px $color-gray-medium;
+  }
+}

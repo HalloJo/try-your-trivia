@@ -35,22 +35,22 @@ const Quiz = ({
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <span>Category: {formatText(currentQuestion.category)}</span>
-          <span>Difficulty: {currentQuestion.difficulty} </span>
+    <div className="quiz">
+      <div className="quiz__banner">
+        <div className="quiz__banner_category">
+          <p>Category:</p> <span>{formatText(currentQuestion.category)}</span>
+        </div>
+        <div className="quiz__banner_difficulty">
+          <p>Difficulty:</p> <span>{currentQuestion.difficulty}</span>{" "}
         </div>
       </div>
       <QuestionCard
         currentQuestion={currentQuestion}
         handleAnswer={handleAnswer}
       />
-      <p>{`Question ${currentQuestionIndex + 1} of ${quizData.length}`}</p>
-
-      {/* <pre style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
-        {JSON.stringify(quizData, null, 2)}
-      </pre> */}
+      <p className="quiz__questions">{`Question ${
+        currentQuestionIndex + 1
+      } of ${quizData.length}`}</p>
     </div>
   );
 };

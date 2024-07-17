@@ -28,11 +28,11 @@
 
 a {
   font-weight: 500;
-  color: $color-purple-light;
+  color: $color-blue;
   text-decoration: inherit;
 }
 a:hover {
-  color: $color-pink;
+  color: $color-bluish;
 }
 
 body {
@@ -46,11 +46,12 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: $font-heading;
 }
 
 button {
   border-radius: 0.6rem;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -58,11 +59,10 @@ button {
   background-color: $color-black;
   cursor: pointer;
   transition: border-color 0.25s;
-  box-shadow: 0px 8px 0px $color-pink-bright;
+  box-shadow: 0px 8px 0px $color-greenish;
 }
 button:hover {
-  border-color: $color-pink;
-  transform: translateY(2px);
+  border-color: $color-gray;
 }
 button:focus,
 button:focus-visible {
@@ -70,7 +70,7 @@ button:focus-visible {
 }
 button:active {
   transform: translateY(8px);
-  box-shadow: 0px 0px 0px $color-pink-bright;
+  box-shadow: 0px 0px 0px $color-greenish;
 }
 
 header {
@@ -82,7 +82,7 @@ header {
     font-weight: 900;
     font-size: 2rem;
     font-style: italic;
-    color: $color-pink-bright;
+    color: $color-greenish;
     margin: 0;
   }
 }
@@ -94,7 +94,11 @@ section {
     background-color: $color-black;
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 1px 4px 29px rgba(255, 3, 154, 0.531);
+    box-shadow: 1px 4px 29px rgba(16, 16, 16, 0.531);
+  }
+
+  p {
+    color: $color-gray-light;
   }
 }
 
@@ -104,11 +108,15 @@ section {
   font-weight: 900;
   font-size: 8rem;
   padding: 3rem;
-  color: $color-pink;
+  color: $color-greenish;
 }
 
-.quiz {
-  margin: 3rem 0 0 0;
+.application {
+  margin: 2rem 0 0 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 footer {
@@ -120,7 +128,7 @@ footer {
   padding: 1rem;
 
   .author {
-    background-color: $color-black;
+    background-color: $color-gray-light;
     width: fit-content;
     font-size: 0.75rem;
     font-family: $font-heading;
@@ -128,7 +136,7 @@ footer {
     font-style: italic;
     padding: 0.25rem 0.5rem;
     border-radius: 5rem;
-    color: $color-pink;
+    color: $color-dark-gray;
 
     span {
       font-weight: 700;

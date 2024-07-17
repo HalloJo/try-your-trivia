@@ -48,7 +48,7 @@ const App = () => {
         </section>
       )}
       <section>
-        <div className="quiz">
+        <div className="application">
           {isQuizCompleted ? (
             <Result score={score} handleReset={handleReset} />
           ) : quizData ? (
