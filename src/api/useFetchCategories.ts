@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Category } from "../types/types";
 
+type CategoriesResponse = {
+  trivia_categories: Category[];
+};
+
 export const useFetchCategories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [error, setError] = useState<string>("");
@@ -11,10 +15,11 @@ export const useFetchCategories = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(CATEGORIES_URL);
-        const data = await response.json();
+        const data: CategoriesResponse = await response.json();
         setCategories(data.trivia_categories);
       } catch (error) {
         setError("Failed to fetch categories");
+        console.log(error);
       }
     };
 

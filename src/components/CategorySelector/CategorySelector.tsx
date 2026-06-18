@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import "./CategorySelector.scss";
 import { useFetchCategories } from "../../api/useFetchCategories";
-import { Category } from "../../types/types";
+import { Category, Question } from "../../types/types";
 import { difficulties } from "../../data/difficulties";
 
-const CategorySelector = ({ handleQuizStart }: any) => {
+interface QuizResponse {
+  response_code: number;
+  results: Question[];
+}
+
+interface CategorySelectorProps {
+  handleQuizStart: (data: Question[]) => void;
+}
+
+const CategorySelector = ({ handleQuizStart }: CategorySelectorProps) => {
   const [category, setCategory] = useState<number>();
   const [difficulty, setDifficulty] = useState<string>("");
 
@@ -15,7 +24,7 @@ const CategorySelector = ({ handleQuizStart }: any) => {
     const response = await fetch(
       `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
     );
-    const data = await response.json();
+    const data: QuizResponse = await response.json();
     handleQuizStart(data.results);
   };
 

@@ -1,19 +1,19 @@
-import React from "react";
 import "../src/scss/main.scss";
 import { useEffect, useState } from "react";
 import CategorySelector from "./components/CategorySelector/CategorySelector";
 import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Result/Result";
 import MobileMessage from "./components/MobileMessage/MobileMessage";
+import { Question } from "./types/types";
 
 const App = () => {
-  const [quizData, setQuizData] = useState(null);
+  const [quizData, setQuizData] = useState<Question[] | null>(null);
   const [ready, setReady] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState<boolean>(false);
   const [showMobileMessage, setShowMobileMessage] = useState<boolean>(false);
 
-  const handleQuizStart = (data: any) => {
+  const handleQuizStart = (data: Question[]) => {
     setQuizData(data);
     setIsQuizCompleted(false);
     setScore(0);
@@ -50,7 +50,7 @@ const App = () => {
     window.addEventListener("resize", checkMobile);
 
     return () => {
-      window.addEventListener("resize", checkMobile);
+      window.removeEventListener("resize", checkMobile);
     };
   }, []);
 
